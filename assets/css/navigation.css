@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+:root {
+    --first-color: #ff0157;
+    --white-color: #fff;
+    --black-color: #111;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    width: .60rem;
+    background-color: #545253;
+    border-radius: .5rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #727071;
+    border-radius: .5rem;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #91898D;
+}
+p {
+    font-weight: 300;
+    color: var(--black-color);
+}
+.signs {
+    color: var(--white-color);
+    margin-top: -5px;
+    background: transparent;
+    border: solid 1px var(--white-color);
+    border-radius: 20px;
+    box-shadow: 2px 8px 20px #181818;
+    display: inline-block;
+    padding: 5px 20px;
+    color: #eee;
+    text-decoration: none;
+    transition: 0.5s;
+}
+a.signs {
+    text-transform: uppercase;
+    color: white; 
+    letter-spacing: 2px;
+}
+.signs:hover {
+    background: var(--first-color);
+    color: white !important;
+    transform: scale(1.1);
+}
+.signIn {
+    color: #eee;
+    font-weight: 500;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 100000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+header.sticky {
+    background: var(--white-color);
+    padding: 10px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+header .logo {
+    color: var(--white-color);;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+header.sticky .logo {
+    color: var(--black-color);
+}
+header.sticky .signs {
+    background: var(--first-color);
+}
+header .logo span {
+    color: var(--first-color);
+}
+header .navigation {
+    position: relative;
+    display: flex;
+}
+header .navigation li {
+    list-style: none;
+    margin-left: 30px;
+}
+header .navigation li a {
+    text-decoration: none;
+    color: var(--white-color);
+    font-weight: 300;
+}
+header.sticky .navigation li a {
+    color: var(--black-color);
+}
+header .navigation li a:hover{
+    color: var(--first-color);
+}
+@media (max-width: 991px) {
+    header,
+    header.sticky {
+        padding: 10px 20px;
+    }
+    header .navigation {
+        display: none;
+    }
+    header .navigation.activo {
+        width: 100%;
+        height: calc(100% - 60px);
+        position: fixed;
+        top: 68px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: var(--white-color);
+    }
+    header .navigation li {
+        margin-left: 0;
+    }
+    header .navigation li a {
+        color: var(--black-color);
+        font-size: 1.6em;
+    }
+    header.sticky .signs {
+        color: var(--white-color);
+        margin-top: 0; 
+        background: transparent;  
+        text-transform: none;
+        border-radius: none; 
+        color: #111; 
+        text-decoration: none; 
+    }
+    .menuToggle {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: url(../img/menu.svg);
+        background-size: 30px;
+        filter: invert(1);
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+    }
+    .menuToggle.activo {
+        background: url(../img/close.svg);
+        background-size: 25px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    header.navigation.activo {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+    }
+    header.sticky .menuToggle{
+        filter: invert(0);
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    ::-webkit-scrollbar-thumb {
+        display: none;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+        background-color: #91898D;
+    }
+}
