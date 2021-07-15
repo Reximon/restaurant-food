@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashborad</title>
+    <!-- Boxi Icons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/admin.css">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxs-pizza'></i>
+            <span class="logo__name">food</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-tachometer'></i>
+                    <span class="link__name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link__name" href="#">Dashboard</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-book-add' ></i>
+                        <span class="link__name">Reservas</span>
+                    </a>
+                    <i class="bx bxs-chevron-down arrow" ></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link__name" href="#">Reservas</a></li>
+                    <li><a href="#">Reservas</a></li>
+                    <li><a href="#">Mesas</a></li>
+                    <li><a href="#">Horarios</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-line-chart-down' ></i>
+                        <span class="link__name">Estadística</span>
+                    </a>
+                    <i class="bx bxs-chevron-down arrow" ></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link__name" href="#">Estadística</a></li>
+                    <li><a href="#">Reservas</a></li>
+                    <li><a href="#">Horas</a></li>
+                    <li><a href="#">Horarios</a></li>
+                </ul>
+            </li>
+            <li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-chat' ></i>
+                    <span class="link__name">Mensajes</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link__name" href="#">Mensajes</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-user-detail' ></i>
+                    <span class="link__name">Usuarios</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link__name" href="#">Usuarios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-log-out' ></i>
+                    <span class="link__name">Cerrar Sesión</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link__name" href="#">Cerrar Sesión</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="profile-details">
+                    
+                    <div class="profile content">
+                        <img src="../assets/img/testi1.jpg" alt="">
+                    </div>
+                        <div class="name-job">
+                            <div class="profile__name">Cristian Cornielle</div>
+                            <div class="job">Administrador</div>
+                        </div>
+                        <i class="bx bx-log-out"></i>
+                </div> 
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <i class="bx bx-menu"></i>
+            <span class="text"> Dashboard</span>
+        </div>
+            <div class="task-container">
+                <div class="card">
+                    <h2 class="task__title">Reservas totales(Anual)</h2>
+                    <p class="task__description">Reservas hechas: 500</p>
+                    <i class='bx bx-calendar-alt'></i>
+                </div>
+                <div class="card">
+                    <h2 class="task__title">Mensajes totales</h2>
+                    <p class="task__description">Mensajes recibidos: 250</p>
+                    <i class='bx bxs-chat' ></i>
+                </div>
+                <div class="card">
+                    <h2 class="task__title">Reservas totales(Mensual)</h2>
+                    <p class="task__description">Reservas hechas: 20</p>
+                    <i class='bx bxs-book-alt' ></i>
+                </div>
+                <div class="card">
+                    <h2 class="task__title">Mensajes pendientes</h2>
+                    <p class="task__description">Mensajes totales: 891</p>
+                    <i class='bx bxs-message-error'></i>
+                </div>
+            </div>
+            <div class="graphics-containers">
+                <div class="graphic__container dates">
+                    <h2 class="graphic__title">Total de Reservas (Fechas) - 2021 <i class='bx bx-filter'></i></h2>
+                    <div id="myfirstchart" class="graphic__date"></div>
+                </div>
+
+                <div class="graphic__container hours">
+                    <h2 class="graphic__title">Total de Reservas (Horas) - 2021 <i class='bx bx-filter'></i></h2>
+                    <div id="pie-chart" class="graphic"></div>
+                </div>
+            </div> 
+    </section>
+    <script>
+        let arrow = document.querySelectorAll('.arrow');
+
+        for (let i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e)=> {
+                let arrowParent = e.target.parentElement.parentElement;
+
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        })
+
+    </script>
+    <!-- SCRIPT DE LA CHART -->
+    <script>
+        var months = ["Ene", "Feb", "Mar", "Abrl", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+                
+            Morris.Line({
+                element: 'myfirstchart',
+                    data: [{
+                        m: '2021-01', // <-- valid timestamp strings
+                        a: 10 
+                    }, {
+                        m: '2021-02',
+                        a: 23
+                    }, {
+                        m: '2021-03',
+                        a: 26
+                    }, {
+                        m: '2021-04',
+                        a: 30
+                    }, {
+                        m: '2021-05',
+                        a: 15
+                    }, {
+                        m: '2021-06',
+                        a: 30
+                    }, {
+                        m: '2021-07',
+                        a: 50
+                    }, {
+                        m: '2021-08',
+                        a: 43
+                    }, {
+                        m: '2021-09',
+                        a: 37
+                    }, {
+                        m: '2021-10',
+                        a: 25
+                    }, {
+                        m: '2021-11',
+                         a: 10
+                    }, {
+                        m: '2021-12',
+                        a: 49
+                    }, ],
+                    xkey: 'm',
+                    ykeys: ['a'],
+                    ymax: 50, 
+                    labels: ['Reservas'],
+                    xLabelFormat: function(x) { // <--- x.getMonth() returns valid index
+                        var month = months[x.getMonth()];
+                        return month;
+                    },
+                    dateFormat: function(x) {
+                        var month = months[new Date(x).getMonth()];
+                        return month;
+                    },
+            });
+    </script>
+    <!-- SCRIPT DE LA PIECHART -->
+    <script>
+        Morris.Donut({
+        element: 'pie-chart',
+        data: [
+            {label: "15:30", value: 20},
+            {label: "16:00", value: 5},
+            {label: "16:30", value: 15},
+            {label: "17:00", value: 5},
+            {label: "17:30", value: 15},
+            {label: "18:00", value: 10},
+            {label: "18:30", value: 30},
+        ]
+        });
+    </script>
+</body>
+</html>
