@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashborad</title>
+    <title>Dashborad ƒood</title>
     <!-- Boxi Icons -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/admin.css">
@@ -15,10 +15,10 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 </head>
 <body>
-    <div class="sidebar">
+    <div class="sidebar close">
         <div class="logo-details">
             <i class='bx bxs-pizza'></i>
-            <span class="logo__name">food</span>
+            <span class="logo__name">ƒood<span class="point">.</span></span>
         </div>
         <ul class="nav-links">
             <li>
@@ -108,26 +108,37 @@
             <i class="bx bx-menu"></i>
             <span class="text"> Dashboard</span>
         </div>
+        <h2 class="logo">ƒood <span class="point">.</span></h2>
             <div class="task-container">
                 <div class="card">
-                    <h2 class="task__title">Reservas totales(Anual)</h2>
-                    <p class="task__description">Reservas hechas: 500</p>
-                    <i class='bx bx-calendar-alt'></i>
+                    <h6 class="task__title book-annual">Reservas totales (Año)</h6>
+                    
+                    <div class="card__container">
+                        <p class="task__description">Reservas hechas: 500</p>
+                        <i class='bx bx-calendar-alt task__icon'></i>
+                    </div>
                 </div>
                 <div class="card">
-                    <h2 class="task__title">Mensajes totales</h2>
-                    <p class="task__description">Mensajes recibidos: 250</p>
-                    <i class='bx bxs-chat' ></i>
+                    <h6 class="task__title book-message">Mensajes totales</h6>
+                    <div class="card__container">
+                        <p class="task__description">Mensajes recibidos: 250</p>
+                        <i class='bx bxs-chat task__icon'></i>
+                    </div>
                 </div>
                 <div class="card">
-                    <h2 class="task__title">Reservas totales(Mensual)</h2>
-                    <p class="task__description">Reservas hechas: 20</p>
-                    <i class='bx bxs-book-alt' ></i>
+                    <h6 class="task__title book-monthly">Reservas totales (Mes)</h6>
+
+                    <div class="card__container">
+                        <p class="task__description">Reservas hechas: 20</p>
+                        <i class='bx bxs-book-alt task__icon'></i>
+                    </div>
                 </div>
                 <div class="card">
-                    <h2 class="task__title">Mensajes pendientes</h2>
-                    <p class="task__description">Mensajes totales: 891</p>
-                    <i class='bx bxs-message-error'></i>
+                    <h6 class="task__title messages-waiting">Mensajes pendientes</h6>
+                    <div class="card__container">
+                        <p class="task__description">Mensajes totales: 891</p>
+                        <i class='bx bxs-message-error task__icon'></i>
+                    </div>
                 </div>
             </div>
             <div class="graphics-containers">
