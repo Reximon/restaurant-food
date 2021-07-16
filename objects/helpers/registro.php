@@ -14,7 +14,13 @@ if(isset($_POST)){
 
     $email = isset($_POST['email']) ?  mysqli_real_escape_string($db, trim($_POST['email'])) : false;
 
+    $position = isset($_POST['position']) ?  mysqli_real_escape_string($db, trim($_POST['position'])) : false;
+
+
     $password = isset($_POST['password']) ?  mysqli_real_escape_string($db, trim($_POST['password'])) : false;
+
+    
+    
 
     // Array de errores
     $errores = array();
@@ -36,6 +42,13 @@ if(isset($_POST)){
     }else{
         $apellido_validate = false;
         $errores['apellidos'] = "El apellido no es válido";
+    }
+    // Localidad
+    if(!empty($position) && !is_numeric($position) && !preg_match("/[0-9]/", $position)){
+        $position_validate = true;
+    }else{
+        $position_validate = false;
+        $errores['position'] = "El cargo puesto no es válido";
     }
         // Email
     if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -61,20 +74,20 @@ if(isset($_POST)){
         $password_secure = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
 
         // Insertar usuario en la tabla de usuarios de la BBDD
-        $sql = "INSERT INTO usuarios VALUES(null, '$nombre', '$apellidos', '$email', '$password_secure', CURDATE());";
+        $sql = "INSERT INTO usuarios VALUES(null, '$nombre', '$apellidos', '$email', '$position', '$password_secure', CURDATE());";
 
         $save = mysqli_query($db, $sql);
 
             if($save){
                 $_SESSION['completado'] = "El registro se ha completado con éxito";
-            header('Location: ../../login.php');
+            header('Location: ../../admin/index.php');
             }else{
                 $_SESSION['errores'] ['general'] = "Fallo al guardar el usuario";
-                header('Location: ../../login.php');
+                header('Location: ../../admin/index.php');
             }
         }else{
         $_SESSION['errores'] = $errores;
-        header('Location: ../../login.php');
+        header('Location: ../../admin/index.php');
 
     }
 }

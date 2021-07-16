@@ -1,7 +1,7 @@
 <?php require_once '../objects/includes/header.php'; ?>
 <div class="main">
-        <div class="container a-container" id="a-container">
-                    <div class="back">
+        <div class="container b-container" id="b-container">
+                    <div class="back-b">
                         <a href="../index.php"> <i class="fas fa-times"></i></a>
                     </div>
                     
@@ -27,6 +27,9 @@
                 
                 <input class="form__input alerta-error" name="apellidos" type="text" placeholder="Introduce tus Apellidos" required>
                 <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'apellidos') : ''; ?>
+
+                <input class="form__input alerta-error" name="position" type="text" placeholder="Introduce tu cargo" required>
+                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'position') : ''; ?>
                 
                 <input class="form__input alerta-error" name="email" type="text" placeholder="Introduce tu Email" required>
                 <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'email') : ''; ?>
@@ -41,8 +44,8 @@
                 <button class="formulario__button button" type="submit">Registrarse</button>
             </form>
         </div>
-        <div class="container b-container" id="b-container">
-                <div class="back-b">
+        <div class="container a-container" id="a-container">
+                <div class="back">
                     <a href="../index.php"> <i class="fas fa-times"></i></a>
                 </div>
                 

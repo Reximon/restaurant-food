@@ -32,7 +32,7 @@ if(isset($_POST)){
             // Utilizar una sesión para guardar los datos del usuario logeado
             $_SESSION['usuario'] = $usuario;
 
-            header('Location: ../../index.php');
+            header('Location: ../../admin/admin.php');
 
             if(isset($_SESSION['error_login'])){
                     session_unset($_SESSION['error_login']);
@@ -40,15 +40,13 @@ if(isset($_POST)){
         }else{
             // Si algo falla enviar una sesión con el fallo
             $_SESSION['error_login'] = "Login Incorrecto";
-            header('Location: ../../login.php');
+            header('Location: ../../admin/index.php');
         }
     }else{
         // mensaje error
         $_SESSION['error_login'] = "Login Incorrecto";
-        header('Location: ../../login.php');
+        header('Location: ../../admin/index.php');
     }
-
-    
 
 }
 
