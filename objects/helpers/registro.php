@@ -80,14 +80,14 @@ if(isset($_POST)){
 
             if($save){
                 $_SESSION['completado'] = "El registro se ha completado con éxito";
-            header('Location: ../../admin/index.php');
+            header('Location: ../../admin/index');
             }else{
                 $_SESSION['errores'] ['general'] = "Fallo al guardar el usuario";
-                header('Location: ../../admin/index.php');
+                header('Location: ../../admin/index');
             }
         }else{
         $_SESSION['errores'] = $errores;
-        header('Location: ../../admin/index.php');
+        header('Location: ../../admin/index');
 
     }
 }

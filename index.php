@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/menu.css">
     <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rotten_Tomatoes.svg/139px-Rotten_Tomatoes.svg.png">
+    <link rel="icon" href="assets\img\pizza.svg">
     <script>
         window.addEventListener('scroll', function(){
             const header = document.querySelector('header');
